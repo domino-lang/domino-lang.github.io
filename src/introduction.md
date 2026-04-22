@@ -1,6 +1,6 @@
 # Introduction
 
-SSPVerif is a project aiming to use formal methods to help with [State-Separating Proofs].
+Domino is a tool for computer-assisted game-hopping and natively supports [State-Separating Proofs].
 
 Code is defined in a pseudocode-like language. The tool generates SMT-LIB 2.6 code, which can be used to prove statements about the code. We are mostly interested in proving equal behaviour of two programs (in order to justify a game-hop).
 
