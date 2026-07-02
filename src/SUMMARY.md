@@ -21,6 +21,8 @@
     - [Domino Web IDE]()
     - [Language Server]()
 - [Language Reference](reference.md)
+    - [Syntax]()
+    - [Semantics]()
     - [Invariants, Lemmata, and Randomness Mapping](reference/SMT.md)
 - [Internals](internals.md)
     - [Domino Core]()
