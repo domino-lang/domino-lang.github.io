@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>SSPVerif</title>
+        <title>Domino</title>
                 <meta name="robots" content="noindex" />
                 
 
@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="pseudocode.html"><strong aria-hidden="true">2.</strong> Pseudocode</a></li><li class="chapter-item expanded "><a href="randomness.html"><strong aria-hidden="true">3.</strong> Randomness</a></li><li class="chapter-item expanded "><a href="cli.html"><strong aria-hidden="true">4.</strong> Commandline</a></li><li class="chapter-item expanded "><a href="rust-code.html"><strong aria-hidden="true">5.</strong> Rust Code</a></li><li class="chapter-item expanded "><a href="for-loops.html"><strong aria-hidden="true">6.</strong> for loops</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="tutorials.html"><strong aria-hidden="true">3.</strong> Tutorials</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> KEM-DEM: SSP style</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> KEM-DEM: Blended style</div></li></ol></li><li class="chapter-item expanded "><a href="concepts.html"><strong aria-hidden="true">4.</strong> Concepts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="concepts/project-structure.html"><strong aria-hidden="true">4.1.</strong> Domino Project Structure</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.</strong> Game-Hopping Proofs</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.3.</strong> Code Equivalence</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.4.</strong> Hybrid Arguments</div></li></ol></li><li class="chapter-item expanded "><a href="techniques.html"><strong aria-hidden="true">5.</strong> Proof Techniques</a></li><li class="chapter-item expanded "><a href="interfaces.html"><strong aria-hidden="true">6.</strong> User Interfaces</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="interfaces/cli.html"><strong aria-hidden="true">6.1.</strong> Command Line Interface</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="interfaces/cli/prove.html"><strong aria-hidden="true">6.1.1.</strong> domino prove</a></li><li class="chapter-item expanded "><a href="interfaces/cli/latex.html"><strong aria-hidden="true">6.1.2.</strong> domino latex</a></li><li class="chapter-item expanded "><a href="interfaces/cli/proofsteps.html"><strong aria-hidden="true">6.1.3.</strong> domino proofsteps</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.</strong> Visual Studio Code Extension</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> Domino Web Proof Viewer</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.4.</strong> Domino Web IDE</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.5.</strong> Language Server</div></li></ol></li><li class="chapter-item expanded "><a href="reference.html"><strong aria-hidden="true">7.</strong> Language Reference</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">7.1.</strong> Syntax</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.2.</strong> Semantics</div></li><li class="chapter-item expanded "><a href="reference/SMT.html"><strong aria-hidden="true">7.3.</strong> Invariants, Lemmata, and Randomness Mapping</a></li></ol></li><li class="chapter-item expanded "><a href="internals.html"><strong aria-hidden="true">8.</strong> Internals</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.</strong> Domino Core</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.1.</strong> Transformations</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.2.</strong> Reduction Verification</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.3.</strong> SMT-LIB Transcripts</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.4.</strong> Proof Assembly</div></li><li class="chapter-item expanded "><a href="internals/graph-construction.html"><strong aria-hidden="true">8.1.5.</strong> Graph Construction</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.2.</strong> Web IDE</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.3.</strong> Language Server</div></li></ol></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -112,7 +112,7 @@
                         </button>
                                             </div>
 
-                    <h1 class="menu-title">SSPVerif</h1>
+                    <h1 class="menu-title">Domino</h1>
 
                     <div class="right-buttons">
                                                 <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -145,157 +145,190 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p>SSPVerif is a project aiming to use formal methods to help with <a href="https://eprint.iacr.org/2018/306">State-Separating Proofs</a>.</p>
+<p>Domino is a tool for computer-assisted game-hopping and natively supports <a href="https://eprint.iacr.org/2018/306">State-Separating Proofs</a>.</p>
 <p>Code is defined in a pseudocode-like language. The tool generates SMT-LIB 2.6 code, which can be used to prove statements about the code. We are mostly interested in proving equal behaviour of two programs (in order to justify a game-hop).</p>
 <p>We also want to type-check our code and draw composition graphs as well as generate LaTeX code from it.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="draft"><a class="header" href="#draft">Draft</a></h1>
-<p>cb: I am not using the correct syntax here yet,
-I am just writing the text and listing the items
-which I'd like to include.
-TODO:</p>
-<ul>
-<li>discuss brackets around statements</li>
-</ul>
-<h1 id="game-definitions"><a class="header" href="#game-definitions">Game Definitions</a></h1>
-<h2 id="types"><a class="header" href="#types">Types</a></h2>
-<p>The type of a variable specifies which
-kind of values it can take, e.g., whether
-x is an integer (Int) or a bistring (bits*).
-While pseudocode in the cryptographic literature
-usually does not specify the type of variables
-explicitly, types are useful for formal verification,
-so we require pseudo-code to specify the type of each 
-variable, e.g., x: Bits(*).</p>
-<h3 id="supported-types"><a class="header" href="#supported-types">Supported Types</a></h3>
-<p>Our pseudo-code supports the following types:</p>
-<ul>
-<li>TODO</li>
-<li>TODO</li>
-<li>TODO</li>
-</ul>
-<h3 id="botnone-and-maybe-types"><a class="header" href="#botnone-and-maybe-types">Bot/None and Maybe Types</a></h3>
-<p>In pseudo-code, we often want to check whether a
-variable has already been assigned or whether a table
-has already been assigned at a particular index. In
-pseudocode, we encode this by checking whether
-x = none(Bits(<em>)). Here, a subtlety in typing comes
-into place. Namely, if x is supposed to be of type
-Bits(</em>), then the value &quot;unassigned&quot; is not of type
-Bits(<em>). Thus, if there is a possibility for x to be
-unassigned, then x needs to be originally declared
-as being of Maybe type which means, either bits</em>
-or none(Bits(<em>)). We write x : Maybe(Bits(</em>)). Indeed,
-since in security games, most variables can be
-undefined, most variables will indeed be of type
-Maybe(type). Given any type type, the constructor</p>
-<p>Maybe(type)</p>
-<p>builds a new type which, in addition to type, includes
-a none symbol. If x is of type type, then we can use
-the operator</p>
-<p>to obtain a variable which has the same value as x,
-but is of type Maybe.</p>
-<h4 id="tuple-types"><a class="header" href="#tuple-types">tuple types</a></h4>
-<p>Given n types type_1,..,type_n, the following tuple
-type is also defined:</p>
-<p>TODO</p>
-<p>The tuple operator for constructing types can be
-applied recursively, i.e., type_1,...,type_n might
-also already be tuple types.</p>
-<h4 id="table-types"><a class="header" href="#table-types">table types</a></h4>
-<p>Given two types type_1 and type_2, we define
-a table with entries of type_2 and indices of type_1
-as follows:</p>
-<p>TODO</p>
-<h4 id="function-types"><a class="header" href="#function-types">function types</a></h4>
-<p>TODO</p>
-<h3 id="type-errors"><a class="header" href="#type-errors">Type Errors</a></h3>
-<p>You will get a typecheck error when...</p>
-<h2 id="pseudocode"><a class="header" href="#pseudocode">Pseudocode</a></h2>
-<p>Our pseudocode style follows popular convention used in
-the cryptographic literature.</p>
-<h3 id="statements"><a class="header" href="#statements">Statements</a></h3>
-<p>Assignments
-x &lt;- expr</p>
-<p>Table Assignments
-T[x] &lt;- y</p>
-<p>Sampling
-x &lt;-$ S</p>
-<h3 id="expressions"><a class="header" href="#expressions">Expressions</a></h3>
-<p>TODO</p>
-<h2 id="packages"><a class="header" href="#packages">Packages</a></h2>
-<p>A package is a base objects, of which multiple <em>instances</em>
-can later be used, cf. Section~\ref{X}. It consists of 
-a <em>state</em>, <em>parameters</em>, the set of <em>oracles</em> it defines
-as well as the set of oracles it calls (imports).</p>
-<h3 id="state"><a class="header" href="#state">State</a></h3>
-<h3 id="parameters"><a class="header" href="#parameters">Parameters</a></h3>
-<h3 id="oracles"><a class="header" href="#oracles">Oracles</a></h3>
-<h3 id="oracle-imports"><a class="header" href="#oracle-imports">Oracle imports</a></h3>
-<h2 id="package-instances"><a class="header" href="#package-instances">Package Instances</a></h2>
-<p>Each package instance needs to specify the <em>name</em> of the
-package instance, the <em>parameters</em> which this package
-instance should use as well as the <em>types</em> of the
-arguments which it takes as well as the types of
-the tables, arguments, and return values.</p>
-<h3 id="package-instance-name"><a class="header" href="#package-instance-name">Package Instance name</a></h3>
-<h3 id="parameters-1"><a class="header" href="#parameters-1">Parameters</a></h3>
-<h2 id="composition"><a class="header" href="#composition">Composition</a></h2>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="handling-randomnes"><a class="header" href="#handling-randomnes">Handling Randomnes</a></h1>
-<p>The randomness relation takes as input two sample ids, two sample counters and the two counter values of the current state. It allows to put randomness into relation and should not map two random strings on one side to the same random string on the other side.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="commandline-client"><a class="header" href="#commandline-client">Commandline Client</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tutorials"><a class="header" href="#tutorials">Tutorials</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="concepts"><a class="header" href="#concepts">Concepts</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="domino-project-structure"><a class="header" href="#domino-project-structure">Domino Project Structure</a></h1>
 <h2 id="directory-layout"><a class="header" href="#directory-layout">Directory Layout</a></h2>
 <p>The <code>ssp</code> binary operates on an directory containing both <code>*.pkg.ssp</code> package definitions and <code>*.comp.ssp</code> composition definitions. By default it will process all of them.</p>
-<h2 id="subcommands"><a class="header" href="#subcommands">Subcommands</a></h2>
-<h3 id="graph"><a class="header" href="#graph">Graph</a></h3>
-<p>Extracts the composition graph in the dot graph-format for further consumption.</p>
-<pre><code>ssp graph --output &lt;OUTPUT&gt; &lt;DIRNAME&gt;
-</code></pre>
-<p>The individual dotfiles can be converted to image files with the <code>dot</code> utility (graphviz)</p>
-<pre><code>dot -T svg outdir/Composition.dot &gt; outdir/Composition.svg
-</code></pre>
-<h3 id="check"><a class="header" href="#check">Check</a></h3>
-<p>Run all transformations (in particular do typechecking) but do not generate outputs.</p>
-<pre><code>ssp check &lt;DIRNAME&gt;
-</code></pre>
-<h3 id="smt"><a class="header" href="#smt">SMT</a></h3>
-<p>Produce smt output for all compositions</p>
-<pre><code>ssp smt &lt;DIRNAME&gt;
-</code></pre>
-<p>One can use <code>z3</code> to verify things basically look OK (it should return <code>sat</code>)</p>
-<pre><code>ssp smt &lt;DIRNAME&gt; | z3 -smt2 -in
-</code></pre>
-<p>Though one needs additional code to actually solve anything</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="rust-code-structure"><a class="header" href="#rust-code-structure">Rust Code Structure</a></h1>
-<p>The <code>ssp</code> tool is written in Rust. Here we will go over the structure of its code. First, it is a normal cargo project, so it follows the basic structure of a crate.</p>
-<h2 id="entrypoint-src"><a class="header" href="#entrypoint-src">Entrypoint: <code>/src</code></a></h2>
-<p>In the src folder, there are a bunch of folders, which we will ignore for now. Instead, we will look at the files:</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="proof-techniques"><a class="header" href="#proof-techniques">Proof Techniques</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="user-interfaces"><a class="header" href="#user-interfaces">User Interfaces</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="command-line-interface-cli"><a class="header" href="#command-line-interface-cli">Command Line Interface (CLI)</a></h1>
+<p>Domino CLI is currently the main user interface for parsing, type checking, 
+proof verification, exporting to LaTeX. This section explains the subcommands 
+that CLI provides.</p>
 <ul>
-<li>identifier.rs</li>
-<li>expressions.rs</li>
-<li>types.rs</li>
-<li>statement.rs</li>
-<li>package.rs</li>
-<li>hacks.rs</li>
-<li>lib.rs</li>
+<li><a href="interfaces/./cli/prove.html"><code>domino prove</code></a></li>
+<li><a href="interfaces/./cli/latex.html"><code>domino latex</code></a></li>
+<li><a href="interfaces/./cli/proofsteps.html"><code>domino proofsteps</code></a></li>
 </ul>
-<p>For several of them, you can probably guess what they are about. Identifiers, expressions, types and statements are defined in the respective files. The file <code>package.rs</code> contains type definitions for SSP packages, as well as compositions of packages. the <code>hacks.rs</code> file contains some smaller hacks that we haven't quite found a good way to properly implement. The lib file just &quot;really ties the room together&quot; and ensures all the types and functions defined in the other files are accessible by the rest of the program.</p>
-<p>Now let's take a look at the directories:</p>
-<ul>
-<li>parser/</li>
-<li>transforms/</li>
-<li>writers/</li>
-<li>cli/</li>
-<li>examples/</li>
-<li>bin/</li>
-</ul>
-<p>The parser, well, parses the pseudocode into the types defined in the files listed above. This is just &quot;dumb&quot; parsing for the most part, and we still need to do some static analysis like e.g. type checking. All of this is done by transforms. These all live in the transforms directory. We will later take a closer look at them. In the writers directory we have code that encodes compositions etc. in different formats. This is also where the smt code generator lives. The cli folder contains some helper code for our command-line interface. Nothing super exciting. The examples directory contains composition code back from when we didn't have a parser for the pseudocode yet. We should probably delete it. And finally, the code for the executable is in the bin folder.</p>
-<div style="break-before: page; page-break-before: always;"></div><p>To prove that oracles with for-loops provide the same input-output-behaviour, the induction proceeds in sub-steps. We first prove that if invariant(Left-old,Right-old) holds, then loop-invariant holds on the left and right oracle state after running all the code up to the for loop. Then, we prove that if loop-invariant holds before a loop step, it also holds after a loop step. Finally, we prove that if the loop-invariant holds in the end of the for-loop, then the invariant holds on Left-new and Right-new.</p>
-<p>Limitations</p>
-<ul>
-<li>We require the two for-loops to be of the same length.</li>
-<li>Aborts need to be at identical times on the left and the right.</li>
-<li>Randomness mapping can only be done within a single iteration of the for loop.</li>
-</ul>
+<blockquote>
+<p>[!TIP]
+If you are getting started with a project, it is a good idea to export the 
+project to LaTeX which contains the composition diagrams next to the 
+code of packages as well as the theorems proved in the project with their 
+proof steps. <a href="interfaces/./cli/latex.html">See <code>domino latex</code> for more information.</a></p>
+</blockquote>
+<blockquote>
+<p>[!TIP]
+<code>domino --version</code> prints the commit hash of the Domino version you are using.
+Please include its output when reporting issues.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="domino-prove"><a class="header" href="#domino-prove"><code>domino prove</code></a></h1>
+<p>This is the most useful command that you use most of the time when working with 
+Domino. It parses and type checks the project and then verifies the proofs. 
+There are several options for the command that we explain here.</p>
+<blockquote>
+<p>[!IMPORTANT]
+Run this command at the root of a Domino project, where <code>ssp.toml</code> is located.</p>
+</blockquote>
+<h2 id="-t-or---transcript"><a class="header" href="#-t-or---transcript"><code>-t</code> or <code>--transcript</code></a></h2>
+<p>This option instructs Domino to store the SMT obligations it passes to its prover
+backend as a SMT-LIB files under the directory <code>_build/code_eq</code> in the current 
+project. Domino generates a separate <code>.smt2</code> file for each claim (invariant, 
+same-output, equal-aborts, and user-defined lemmata) in each oracle exposed by 
+each pair of equivalent games, i.e. <code>{left-game-instance-name}-{right-game-instance-name}-{oracle-name}-{claim}.smt2</code>.</p>
+<blockquote>
+<p>[!TIP]
+Use this option for debugging as well as learning how Domino verifies 
+your code equivalence game hops under the hood. You may run your favorite SMT 
+solver directly on this file with various debugging options.</p>
+</blockquote>
+<h2 id="-s-smtsolver-or---smtsolver-smtsolver"><a class="header" href="#-s-smtsolver-or---smtsolver-smtsolver"><code>-s &lt;SMTSOLVER&gt;</code> or <code>--smtsolver &lt;SMTSOLVER&gt;</code></a></h2>
+<p>This option instructs Domino to use the given SMT solver backend. Possible 
+values are <code>cvc5</code>, <code>cvc4</code>, and <code>z3</code>. Default solver is CVC5.</p>
+<blockquote>
+<p>[!WARNING]
+Currently, we have tested our example projects only with cvc5.</p>
+</blockquote>
+<h2 id="--proof-proof"><a class="header" href="#--proof-proof"><code>--proof &lt;PROOF&gt;</code></a></h2>
+<p>This option instructs Domino to only attempt proving the given theorem. Notice 
+that the theorem name defined with the theorem block in the theorem file is 
+considered, not the name of theorem file. For example:</p>
+<pre><code class="language-bash">domino prove --proof Simple4WHS
+</code></pre>
+<h2 id="--proofstep-proofstep"><a class="header" href="#--proofstep-proofstep"><code>--proofstep &lt;PROOFSTEP&gt;</code></a></h2>
+<p>Given that the previous <code>--proof</code> option is provided, user can specify the 
+numeric index of the game hop they wish to verify in the given theorem <code>&lt;PROOF&gt;</code>. 
+Game hops in a <code>gamehop</code> block 
+are indexed from top to bottom starting from zero. For example:</p>
+<pre><code class="language-bash">domino prove --proof Simple4WHS --proofstep 0
+</code></pre>
+<h2 id="--oracle-oracle"><a class="header" href="#--oracle-oracle"><code>--oracle &lt;ORACLE&gt;</code></a></h2>
+<p>Given that the previous two options <code>--proof</code> and <code>--proofstep</code> are provided and 
+the game hop corresponding to <code>&lt;PROOFSTEP&gt;</code> is an equivalence game hop, the user 
+can specify the name of the oracle they wish to be verified. For example:</p>
+<pre><code class="language-bash">domino prove --proof Simple4WHS --proofstep 0 --oracle NewKey
+</code></pre>
+<h2 id="--parallel-threads"><a class="header" href="#--parallel-threads"><code>--parallel &lt;THREADS&gt;</code></a></h2>
+<p>This option instructs Domino to spawn a thread pool of size <code>&lt;THREADS&gt; + 1</code> for 
+SMT solving. It defaults to 1, i.e. 2 threads; therefore, parallel solving is on 
+by default.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="domino-latex"><a class="header" href="#domino-latex"><code>domino latex</code></a></h1>
+<p>This command instructs Domino to export composition diagrams (in TikZ) next to
+the pseudocode of the packages (with CryptoCode) to LaTeX. Moreover, it states
+the theorems proved in the project and the game hops for each of them. </p>
+<p>The output LaTeX files are stored under the directory <code>_build/latex</code> in the 
+current project. Some files are marked with <code>_lossy</code> in the end of their names. 
+These are intended to contain a more readable version of the pseudocode of packages 
+for cryptographers or anyone who may care less about the syntactic salt of Domino.</p>
+<blockquote>
+<p>[!TIP]
+Domino generates two LaTeX files (called <code>Theorem_{Theorem-Name}.tex</code> and 
+<code>Theorem_{Theorem-Name}_lossy.tex</code>) for each theorem 
+in the project. Consider compiling either of these two files if you want to 
+get an overview of the project.</p>
+</blockquote>
+<blockquote>
+<p>[!WARNING]
+It might take a few seconds or minutes for the job to finish. Be patient! Read 
+the rest of the section to see why!</p>
+</blockquote>
+<h2 id="-s-solver-or---smtsolver-solver"><a class="header" href="#-s-solver-or---smtsolver-solver"><code>-s &lt;SOLVER&gt;</code> or <code>--smtsolver &lt;SOLVER&gt;</code></a></h2>
+<p>This option instructs Domino to use the given SMT solver for generating 
+composition diagrams. Possible values are <code>cvc4</code>, <code>cvc5</code>, and <code>z3</code>. It defaults to 
+<code>cvc5</code>.</p>
+<blockquote>
+<p>[!TIP]
+Unlike code equivalences, <code>z3</code> has shown to be much faster with solving 
+constraints used for construction of composition diagrams.</p>
+</blockquote>
+<blockquote>
+<p>[!NOTE]
+How come is an SMT solver used for LaTeX export?</p>
+<p>Eye-catching SSP diagrams can not be generated carelessly. Packages shall not 
+overlap. Calling packages shall lie to the left of the callee packages. Edges 
+shall not cross packages. There should be enough spacing between packages and 
+edges to be aesthetically charming. </p>
+<p>These requirements require a careful algorithm to be designed. However, as 
+developers of a formal verification tool, we decided to formally state our 
+requirements and let the solver to find a solution adhering to our 
+specifications. <a href="interfaces/cli/../../internals/graph-construction.html">Read more about the constraints passed to the SMT solver here.</a></p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="domino-proofsteps"><a class="header" href="#domino-proofsteps"><code>domino proofsteps</code></a></h1>
+<p>This command outputs a one-line summary (equivalence or reduction to which 
+assumption) of the game hops for each theorem in the project.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="language-reference"><a class="header" href="#language-reference">Language Reference</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="invariants-lemmata-and-randomness-mapping"><a class="header" href="#invariants-lemmata-and-randomness-mapping">Invariants, Lemmata, and Randomness Mapping</a></h1>
+<p>Domino allows the user to express their state relations, lemmata, and 
+randomness mappings with SMT-LIB language. Additionally, Domino defines a 
+syntactic sugar to help writing these relations.</p>
+<h2 id="invariants"><a class="header" href="#invariants">Invariants</a></h2>
+<p>For each equivalence game hop, Domino expects us to define a function called 
+<code>invariant</code> which takes the states of the left and right sides of the 
+code equivalence.</p>
+<pre><code class="language-smtlib">(define-fun invariant 
+    (
+        (left-state &lt;GameState_{left-game-instance-name&gt;}_&lt;$&lt;!{int-param-1}!&gt;...&lt;!{int-param-n}!&gt;$&gt;&gt;)
+        (right-state &lt;GameState_{right-game-instance-name&gt;}_&lt;$&lt;!{int-param-1}!&gt;...&lt;!{int-param-n}!&gt;$&gt;&gt;)
+    )
+    Bool
+    ; your invariant
+)
+</code></pre>
+<p>Notice that the game instance name shall be the same as the name used when 
+instantiating the name in the theorem. Moreover, only integer parameters of the 
+games (in the order of declaration in the composition files) 
+appear in the game state type. For example:</p>
+<pre><code class="language-smtlib">(define-fun invariant
+    (
+        (left-game &lt;GameState_Left_&lt;$&lt;!n!&gt;&lt;!m!&gt;$&gt;&gt;)
+        (right-game &lt;GameState_Right_&lt;$&lt;!n!&gt;&lt;!m!&gt;$&gt;&gt;)
+    )
+    Bool
+    true
+)
+</code></pre>
+<blockquote>
+<p>[!TIP]
+You can find the exact type for your game states in the transcripts generated 
+by Domino CLI. <a href="reference/../interfaces/cli.html">Read about transcripts in CLI options.</a></p>
+</blockquote>
+<blockquote>
+<p>[!NOTE]
+Why only integer parameters?</p>
+<p>Integer parameters can be used to declare bit string types (<code>Bits(n)</code>)
+and bit strings are translated to a corresponding <code>Bits_n</code>. That is, unlike 
+other parameters (functions, booleans, etc.) they can be used to modify 
+types and not just code of packages. Therefore, the current implementation 
+creates a new game (and package) state type for each combination of concrete 
+bit string types. For instance, if a game with an integer parameter <code>n</code>is 
+instantiated with literal integer <code>256</code> as well as a theorem parameter <code>skeylen</code>,
+two game states with <code>&lt;!256!&gt;</code> and <code>&lt;!skeylen!&gt;</code> in their names are 
+defined in the transcript.</p>
+</blockquote>
+<blockquote>
+<p>[!WARNING]
+It is possible that in future, only integers used for type modifications are 
+used in the game state type names. Therefore, it is always a good idea to 
+check the transcript.</p>
+</blockquote>
+<h3 id="syntactic-sugar"><a class="header" href="#syntactic-sugar">Syntactic Sugar</a></h3>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="internals"><a class="header" href="#internals">Internals</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="graph-construction"><a class="header" href="#graph-construction">Graph Construction</a></h1>
 
                     </main>
 
@@ -331,6 +364,7 @@ the tables, arguments, and return values.</p>
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+                <script type="text/javascript" src="theme/syntax-extra.js"></script>
         
                         <script type="text/javascript">
         window.addEventListener('load', function() {

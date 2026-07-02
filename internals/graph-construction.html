@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Rust Code - SSPVerif</title>
+        <title>Graph Construction - Domino</title>
                 
 
         <!-- Custom HTML head -->
@@ -14,21 +14,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
-                <link rel="icon" href="favicon.svg">
-                        <link rel="shortcut icon" href="favicon.png">
-                <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-                <link rel="stylesheet" href="css/print.css" media="print">
+                <link rel="icon" href="../favicon.svg">
+                        <link rel="shortcut icon" href="../favicon.png">
+                <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+                <link rel="stylesheet" href="../css/print.css" media="print">
         
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-                <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="../fonts/fonts.css">
         
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
         
@@ -36,7 +36,7 @@
     <body>
         <!-- Provide site root to javascript -->
         <script type="text/javascript">
-            var path_to_root = "";
+            var path_to_root = "../";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="pseudocode.html"><strong aria-hidden="true">2.</strong> Pseudocode</a></li><li class="chapter-item expanded "><a href="randomness.html"><strong aria-hidden="true">3.</strong> Randomness</a></li><li class="chapter-item expanded "><a href="cli.html"><strong aria-hidden="true">4.</strong> Commandline</a></li><li class="chapter-item expanded "><a href="rust-code.html" class="active"><strong aria-hidden="true">5.</strong> Rust Code</a></li><li class="chapter-item expanded "><a href="for-loops.html"><strong aria-hidden="true">6.</strong> for loops</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="../getting-started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="../tutorials.html"><strong aria-hidden="true">3.</strong> Tutorials</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> KEM-DEM: SSP style</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> KEM-DEM: Blended style</div></li></ol></li><li class="chapter-item expanded "><a href="../concepts.html"><strong aria-hidden="true">4.</strong> Concepts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../concepts/project-structure.html"><strong aria-hidden="true">4.1.</strong> Domino Project Structure</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.</strong> Game-Hopping Proofs</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.3.</strong> Code Equivalence</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.4.</strong> Hybrid Arguments</div></li></ol></li><li class="chapter-item expanded "><a href="../techniques.html"><strong aria-hidden="true">5.</strong> Proof Techniques</a></li><li class="chapter-item expanded "><a href="../interfaces.html"><strong aria-hidden="true">6.</strong> User Interfaces</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../interfaces/cli.html"><strong aria-hidden="true">6.1.</strong> Command Line Interface</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../interfaces/cli/prove.html"><strong aria-hidden="true">6.1.1.</strong> domino prove</a></li><li class="chapter-item expanded "><a href="../interfaces/cli/latex.html"><strong aria-hidden="true">6.1.2.</strong> domino latex</a></li><li class="chapter-item expanded "><a href="../interfaces/cli/proofsteps.html"><strong aria-hidden="true">6.1.3.</strong> domino proofsteps</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.</strong> Visual Studio Code Extension</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> Domino Web Proof Viewer</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.4.</strong> Domino Web IDE</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.5.</strong> Language Server</div></li></ol></li><li class="chapter-item expanded "><a href="../reference.html"><strong aria-hidden="true">7.</strong> Language Reference</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">7.1.</strong> Syntax</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.2.</strong> Semantics</div></li><li class="chapter-item expanded "><a href="../reference/SMT.html"><strong aria-hidden="true">7.3.</strong> Invariants, Lemmata, and Randomness Mapping</a></li></ol></li><li class="chapter-item expanded "><a href="../internals.html"><strong aria-hidden="true">8.</strong> Internals</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.</strong> Domino Core</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.1.</strong> Transformations</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.2.</strong> Reduction Verification</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.3.</strong> SMT-LIB Transcripts</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.4.</strong> Proof Assembly</div></li><li class="chapter-item expanded "><a href="../internals/graph-construction.html" class="active"><strong aria-hidden="true">8.1.5.</strong> Graph Construction</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.2.</strong> Web IDE</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.3.</strong> Language Server</div></li></ol></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -111,10 +111,10 @@
                         </button>
                                             </div>
 
-                    <h1 class="menu-title">SSPVerif</h1>
+                    <h1 class="menu-title">Domino</h1>
 
                     <div class="right-buttons">
-                                                <a href="print.html" title="Print this book" aria-label="Print this book">
+                                                <a href="../print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
                                                                         
@@ -143,42 +143,16 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="rust-code-structure"><a class="header" href="#rust-code-structure">Rust Code Structure</a></h1>
-<p>The <code>ssp</code> tool is written in Rust. Here we will go over the structure of its code. First, it is a normal cargo project, so it follows the basic structure of a crate.</p>
-<h2 id="entrypoint-src"><a class="header" href="#entrypoint-src">Entrypoint: <code>/src</code></a></h2>
-<p>In the src folder, there are a bunch of folders, which we will ignore for now. Instead, we will look at the files:</p>
-<ul>
-<li>identifier.rs</li>
-<li>expressions.rs</li>
-<li>types.rs</li>
-<li>statement.rs</li>
-<li>package.rs</li>
-<li>hacks.rs</li>
-<li>lib.rs</li>
-</ul>
-<p>For several of them, you can probably guess what they are about. Identifiers, expressions, types and statements are defined in the respective files. The file <code>package.rs</code> contains type definitions for SSP packages, as well as compositions of packages. the <code>hacks.rs</code> file contains some smaller hacks that we haven't quite found a good way to properly implement. The lib file just &quot;really ties the room together&quot; and ensures all the types and functions defined in the other files are accessible by the rest of the program.</p>
-<p>Now let's take a look at the directories:</p>
-<ul>
-<li>parser/</li>
-<li>transforms/</li>
-<li>writers/</li>
-<li>cli/</li>
-<li>examples/</li>
-<li>bin/</li>
-</ul>
-<p>The parser, well, parses the pseudocode into the types defined in the files listed above. This is just &quot;dumb&quot; parsing for the most part, and we still need to do some static analysis like e.g. type checking. All of this is done by transforms. These all live in the transforms directory. We will later take a closer look at them. In the writers directory we have code that encodes compositions etc. in different formats. This is also where the smt code generator lives. The cli folder contains some helper code for our command-line interface. Nothing super exciting. The examples directory contains composition code back from when we didn't have a parser for the pseudocode yet. We should probably delete it. And finally, the code for the executable is in the bin folder.</p>
+                        <h1 id="graph-construction"><a class="header" href="#graph-construction">Graph Construction</a></h1>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                                                    <a rel="prev" href="cli.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                                    <a rel="prev" href="../internals.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
-                                                    <a rel="next" href="for-loops.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
                         
                         <div style="clear: both"></div>
                     </nav>
@@ -186,13 +160,10 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                                    <a rel="prev" href="cli.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                    <a rel="prev" href="../internals.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
-                                    <a rel="next" href="for-loops.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
                             </nav>
 
         </div>
@@ -205,15 +176,16 @@
         </script>
         
         
-                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+                <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
         
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+                <script type="text/javascript" src="../theme/syntax-extra.js"></script>
         
         
     </body>

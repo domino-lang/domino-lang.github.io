@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Pseudocode - SSPVerif</title>
+        <title>Internals - Domino</title>
                 
 
         <!-- Custom HTML head -->
@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="pseudocode.html" class="active"><strong aria-hidden="true">2.</strong> Pseudocode</a></li><li class="chapter-item expanded "><a href="randomness.html"><strong aria-hidden="true">3.</strong> Randomness</a></li><li class="chapter-item expanded "><a href="cli.html"><strong aria-hidden="true">4.</strong> Commandline</a></li><li class="chapter-item expanded "><a href="rust-code.html"><strong aria-hidden="true">5.</strong> Rust Code</a></li><li class="chapter-item expanded "><a href="for-loops.html"><strong aria-hidden="true">6.</strong> for loops</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="getting-started.html"><strong aria-hidden="true">2.</strong> Getting Started</a></li><li class="chapter-item expanded "><a href="tutorials.html"><strong aria-hidden="true">3.</strong> Tutorials</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">3.1.</strong> KEM-DEM: SSP style</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.</strong> KEM-DEM: Blended style</div></li></ol></li><li class="chapter-item expanded "><a href="concepts.html"><strong aria-hidden="true">4.</strong> Concepts</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="concepts/project-structure.html"><strong aria-hidden="true">4.1.</strong> Domino Project Structure</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.</strong> Game-Hopping Proofs</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.3.</strong> Code Equivalence</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.4.</strong> Hybrid Arguments</div></li></ol></li><li class="chapter-item expanded "><a href="techniques.html"><strong aria-hidden="true">5.</strong> Proof Techniques</a></li><li class="chapter-item expanded "><a href="interfaces.html"><strong aria-hidden="true">6.</strong> User Interfaces</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="interfaces/cli.html"><strong aria-hidden="true">6.1.</strong> Command Line Interface</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="interfaces/cli/prove.html"><strong aria-hidden="true">6.1.1.</strong> domino prove</a></li><li class="chapter-item expanded "><a href="interfaces/cli/latex.html"><strong aria-hidden="true">6.1.2.</strong> domino latex</a></li><li class="chapter-item expanded "><a href="interfaces/cli/proofsteps.html"><strong aria-hidden="true">6.1.3.</strong> domino proofsteps</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.2.</strong> Visual Studio Code Extension</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.3.</strong> Domino Web Proof Viewer</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.4.</strong> Domino Web IDE</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">6.5.</strong> Language Server</div></li></ol></li><li class="chapter-item expanded "><a href="reference.html"><strong aria-hidden="true">7.</strong> Language Reference</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">7.1.</strong> Syntax</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">7.2.</strong> Semantics</div></li><li class="chapter-item expanded "><a href="reference/SMT.html"><strong aria-hidden="true">7.3.</strong> Invariants, Lemmata, and Randomness Mapping</a></li></ol></li><li class="chapter-item expanded "><a href="internals.html" class="active"><strong aria-hidden="true">8.</strong> Internals</a></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.</strong> Domino Core</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.1.</strong> Transformations</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.2.</strong> Reduction Verification</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.3.</strong> SMT-LIB Transcripts</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.1.4.</strong> Proof Assembly</div></li><li class="chapter-item expanded "><a href="internals/graph-construction.html"><strong aria-hidden="true">8.1.5.</strong> Graph Construction</a></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.2.</strong> Web IDE</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">8.3.</strong> Language Server</div></li></ol></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -111,7 +111,7 @@
                         </button>
                                             </div>
 
-                    <h1 class="menu-title">SSPVerif</h1>
+                    <h1 class="menu-title">Domino</h1>
 
                     <div class="right-buttons">
                                                 <a href="print.html" title="Print this book" aria-label="Print this book">
@@ -143,108 +143,17 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="draft"><a class="header" href="#draft">Draft</a></h1>
-<p>cb: I am not using the correct syntax here yet,
-I am just writing the text and listing the items
-which I'd like to include.
-TODO:</p>
-<ul>
-<li>discuss brackets around statements</li>
-</ul>
-<h1 id="game-definitions"><a class="header" href="#game-definitions">Game Definitions</a></h1>
-<h2 id="types"><a class="header" href="#types">Types</a></h2>
-<p>The type of a variable specifies which
-kind of values it can take, e.g., whether
-x is an integer (Int) or a bistring (bits*).
-While pseudocode in the cryptographic literature
-usually does not specify the type of variables
-explicitly, types are useful for formal verification,
-so we require pseudo-code to specify the type of each 
-variable, e.g., x: Bits(*).</p>
-<h3 id="supported-types"><a class="header" href="#supported-types">Supported Types</a></h3>
-<p>Our pseudo-code supports the following types:</p>
-<ul>
-<li>TODO</li>
-<li>TODO</li>
-<li>TODO</li>
-</ul>
-<h3 id="botnone-and-maybe-types"><a class="header" href="#botnone-and-maybe-types">Bot/None and Maybe Types</a></h3>
-<p>In pseudo-code, we often want to check whether a
-variable has already been assigned or whether a table
-has already been assigned at a particular index. In
-pseudocode, we encode this by checking whether
-x = none(Bits(<em>)). Here, a subtlety in typing comes
-into place. Namely, if x is supposed to be of type
-Bits(</em>), then the value &quot;unassigned&quot; is not of type
-Bits(<em>). Thus, if there is a possibility for x to be
-unassigned, then x needs to be originally declared
-as being of Maybe type which means, either bits</em>
-or none(Bits(<em>)). We write x : Maybe(Bits(</em>)). Indeed,
-since in security games, most variables can be
-undefined, most variables will indeed be of type
-Maybe(type). Given any type type, the constructor</p>
-<p>Maybe(type)</p>
-<p>builds a new type which, in addition to type, includes
-a none symbol. If x is of type type, then we can use
-the operator</p>
-<p>to obtain a variable which has the same value as x,
-but is of type Maybe.</p>
-<h4 id="tuple-types"><a class="header" href="#tuple-types">tuple types</a></h4>
-<p>Given n types type_1,..,type_n, the following tuple
-type is also defined:</p>
-<p>TODO</p>
-<p>The tuple operator for constructing types can be
-applied recursively, i.e., type_1,...,type_n might
-also already be tuple types.</p>
-<h4 id="table-types"><a class="header" href="#table-types">table types</a></h4>
-<p>Given two types type_1 and type_2, we define
-a table with entries of type_2 and indices of type_1
-as follows:</p>
-<p>TODO</p>
-<h4 id="function-types"><a class="header" href="#function-types">function types</a></h4>
-<p>TODO</p>
-<h3 id="type-errors"><a class="header" href="#type-errors">Type Errors</a></h3>
-<p>You will get a typecheck error when...</p>
-<h2 id="pseudocode"><a class="header" href="#pseudocode">Pseudocode</a></h2>
-<p>Our pseudocode style follows popular convention used in
-the cryptographic literature.</p>
-<h3 id="statements"><a class="header" href="#statements">Statements</a></h3>
-<p>Assignments
-x &lt;- expr</p>
-<p>Table Assignments
-T[x] &lt;- y</p>
-<p>Sampling
-x &lt;-$ S</p>
-<h3 id="expressions"><a class="header" href="#expressions">Expressions</a></h3>
-<p>TODO</p>
-<h2 id="packages"><a class="header" href="#packages">Packages</a></h2>
-<p>A package is a base objects, of which multiple <em>instances</em>
-can later be used, cf. Section~\ref{X}. It consists of 
-a <em>state</em>, <em>parameters</em>, the set of <em>oracles</em> it defines
-as well as the set of oracles it calls (imports).</p>
-<h3 id="state"><a class="header" href="#state">State</a></h3>
-<h3 id="parameters"><a class="header" href="#parameters">Parameters</a></h3>
-<h3 id="oracles"><a class="header" href="#oracles">Oracles</a></h3>
-<h3 id="oracle-imports"><a class="header" href="#oracle-imports">Oracle imports</a></h3>
-<h2 id="package-instances"><a class="header" href="#package-instances">Package Instances</a></h2>
-<p>Each package instance needs to specify the <em>name</em> of the
-package instance, the <em>parameters</em> which this package
-instance should use as well as the <em>types</em> of the
-arguments which it takes as well as the types of
-the tables, arguments, and return values.</p>
-<h3 id="package-instance-name"><a class="header" href="#package-instance-name">Package Instance name</a></h3>
-<h3 id="parameters-1"><a class="header" href="#parameters-1">Parameters</a></h3>
-<h2 id="composition"><a class="header" href="#composition">Composition</a></h2>
+                        <h1 id="internals"><a class="header" href="#internals">Internals</a></h1>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                                                    <a rel="prev" href="introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                                    <a rel="prev" href="reference/SMT.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
-                                                    <a rel="next" href="randomness.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                                    <a rel="next" href="internals/graph-construction.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -254,11 +163,11 @@ the tables, arguments, and return values.</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                                    <a rel="prev" href="introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                    <a rel="prev" href="reference/SMT.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
-                                    <a rel="next" href="randomness.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                    <a rel="next" href="internals/graph-construction.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                             </nav>
@@ -282,6 +191,7 @@ the tables, arguments, and return values.</p>
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+                <script type="text/javascript" src="theme/syntax-extra.js"></script>
         
         
     </body>
