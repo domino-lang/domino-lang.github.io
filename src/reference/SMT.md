@@ -22,14 +22,17 @@ code equivalence.
 
 Notice that the game instance name shall be the same as the name used when 
 instantiating the name in the theorem. Moreover, only integer parameters of the 
-games appear in the game state type. For example:
+games (in the order of declaration in the composition files) 
+appear in the game state type. For example:
 
 ```smtlib
 (define-fun invariant
-    ((left-game <GameState_Left_<$<!n!><!m!>$>>)
-     (right-game <GameState_Right_<$<!n!><!m!>$>>))
-  Bool
-  true
+    (
+        (left-game <GameState_Left_<$<!n!><!m!>$>>)
+        (right-game <GameState_Right_<$<!n!><!m!>$>>)
+    )
+    Bool
+    true
 )
 ```
 
@@ -39,6 +42,7 @@ games appear in the game state type. For example:
 
 > [!NOTE]
 > Why only integer parameters?
+>
 > Integer parameters can be used to declare bit string types (`Bits(n)`)
 > and bit strings are translated to a corresponding `Bits_n`. That is, unlike 
 > other parameters (functions, booleans, etc.) they can be used to modify 
@@ -46,7 +50,8 @@ games appear in the game state type. For example:
 > creates a new game (and package) state type for each combination of concrete 
 > bit string types. For instance, if a game with an integer parameter `n`is 
 > instantiated with literal integer `256` as well as a theorem parameter `skeylen`,
-> two game states are defined in the transcript.
+> two game states with `<!256!>` and `<!skeylen!>` in their names are 
+> defined in the transcript.
 
 > [!WARNING]
 > It is possible that in future, only integers used for type modifications are 

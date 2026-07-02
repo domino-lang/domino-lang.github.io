@@ -30,6 +30,6 @@
         - [Reduction Verification]()
         - [SMT-LIB Transcripts]()
         - [Proof Assembly]()
-        - [Graph Construction]()
+        - [Graph Construction](internals/graph-construction.md)
     - [Web IDE]()
     - [Language Server]()
