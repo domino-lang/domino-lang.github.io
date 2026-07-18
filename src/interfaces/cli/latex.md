@@ -22,14 +22,14 @@ for cryptographers or anyone who may care less about the syntactic salt of Domin
 ## `-s <SOLVER>` or `--smtsolver <SOLVER>`
 This option instructs Domino to use the given SMT solver for generating 
 composition diagrams. Possible values are `cvc4`, `cvc5`, and `z3`. It defaults to 
-`cvc5`.
+`z3`.
 
 > [!TIP]
-> Unlike code equivalences, `z3` has shown to be much faster with solving 
-> constraints used for construction of composition diagrams.
+> While `z3` works much faster, especially on large examples it is possible to use
+> `cvc5` as well -- for example if you currently do not have `z3` installed.
 
 > [!NOTE]
-> How come is an SMT solver used for LaTeX export?
+> How come there is an SMT solver used for LaTeX export?
 > 
 > Eye-catching SSP diagrams can not be generated carelessly. Packages shall not 
 > overlap. Calling packages shall lie to the left of the callee packages. Edges 
