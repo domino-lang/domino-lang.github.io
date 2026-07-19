@@ -1,0 +1,49 @@
+# ── Site config ────────────────────────────────────────────────────────────
+baseURL = "https://domino-prover.org/"
+languageCode = "en"
+title = "Domino"
+
+# Build into the monorepo's shared output dir (repo-root/dist). Path is
+# relative to this file (repo-root/site/hugo.toml).
+publishDir = "../dist"
+
+# Pretty URLs: content/getting-started.md  ->  /getting-started/
+# If you'd rather keep .html extensions (e.g. /getting-started.html), set:
+#   uglyURLs = true
+
+# Allow raw HTML inside markdown content pages (needed for custom markup).
+[markup.goldmark.renderer]
+unsafe = true
+
+# ── Machine-readable nav ────────────────────────────────────────────────────
+# Publish the main menu as /nav.json (rendered by layouts/index.navjson.json)
+# so the mdBook guide can consume the exact same entries. Same origin, so the
+# guide fetches "/nav.json" with no CORS setup.
+[outputs]
+home = ["HTML", "NavJSON"]
+
+[outputFormats.NavJSON]
+mediaType = "application/json"
+baseName = "nav"
+isPlainText = true
+notAlternative = true          # keep it out of <link rel="alternate"> in <head>
+
+# ── Navigation ─────────────────────────────────────────────────────────────
+# This single menu is the ONE source of truth for nav entries. It drives:
+#   1. the site's top nav bar and footer links, and
+#   2. the mdBook guide's nav — Hugo publishes it to /nav.json (see [outputs]
+#      below) and the guide fetches it at runtime. Edit entries only here.
+[[menus.main]]
+name = "Book"
+url = "/book/"
+weight = 10
+
+[[menus.main]]
+name = "Code"
+url = "https://github.com/domino-lang/domino"
+weight = 20
+
+[[menus.main]]
+name = "Zulip"
+url = "https://talk.domino-prover.org"
+weight = 30
