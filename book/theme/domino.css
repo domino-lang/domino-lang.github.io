@@ -1,0 +1,164 @@
+/* ==========================================================================
+   Domino — mdBook theme overlay
+   Makes the guide match the landing page (styles.css): same design tokens,
+   same sticky header (wordmark + nav), same footer, same code look. Colors
+   follow the OS light/dark preference — identical behaviour to the site.
+   ========================================================================== */
+
+/* ---- 1. Design tokens (copied verbatim from the landing styles.css) ------ */
+:root {
+  --bg:        oklch(99% 0.002 250);
+  --bg-soft:   oklch(97% 0.004 250);
+  --border:    oklch(88% 0.008 250);
+  --fg:        oklch(24% 0.012 250);
+  --muted:     oklch(48% 0.012 250);
+  --accent:    #158a9e;
+  --accent-fg: oklch(99% 0.005 200);
+  --code-kw:   #158a9e;
+  --code-ty:   oklch(55% 0.13 145);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:        oklch(17% 0.008 250);
+    --bg-soft:   oklch(20% 0.009 250);
+    --border:    oklch(32% 0.012 250);
+    --fg:        oklch(93% 0.004 250);
+    --muted:     oklch(66% 0.012 250);
+    --accent:    color-mix(in oklch, #158a9e 55%, white);
+    --accent-fg: oklch(15% 0.01 200);
+    --code-kw:   color-mix(in oklch, #158a9e 55%, white);
+    --code-ty:   oklch(75% 0.11 145);
+  }
+}
+
+/* ---- 2. Remap mdBook's theme variables onto the tokens ------------------- */
+/* This block loads after mdBook's own CSS, so :root wins over its .light /
+   .navy / etc. theme classes. Because these all reference the tokens above,
+   dark mode is handled entirely by the media query in section 1. */
+:root {
+  --sidebar-bg:            var(--bg-soft);
+  --sidebar-fg:            var(--muted);
+  --sidebar-non-existant:  var(--muted);
+  --sidebar-active:        var(--accent);
+  --sidebar-spacer:        var(--border);
+  --scrollbar:             var(--muted);
+
+  --icons:                 var(--muted);
+  --icons-hover:           var(--fg);
+  --links:                 var(--accent);
+  --inline-code-color:     var(--code-kw);
+
+  --theme-popup-bg:        var(--bg-soft);
+  --theme-popup-border:    var(--border);
+  --theme-hover:           color-mix(in oklab, var(--bg-soft) 88%, var(--fg));
+
+  --quote-bg:              var(--bg-soft);
+  --quote-border:          var(--border);
+  --warning-border:        var(--accent);
+
+  --table-border-color:    var(--border);
+  --table-header-bg:       var(--bg-soft);
+  --table-alternate-bg:    var(--bg-soft);
+
+  --searchbar-border-color:   var(--border);
+  --searchbar-bg:             var(--bg-soft);
+  --searchbar-fg:             var(--fg);
+  --searchbar-shadow-color:   var(--border);
+  --searchresults-header-fg:  var(--muted);
+  --searchresults-border-color: var(--border);
+  --searchresults-li-bg:      var(--bg-soft);
+  --search-mark-bg:           var(--accent);
+}
+
+/* ---- 3. Typography (system UI font + JetBrains Mono, as on the site) ----- */
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}
+code, pre, kbd, .hljs, .filename { font-family: "JetBrains Mono", monospace; }
+
+.content a,
+.content a:visited { color: var(--links); }
+
+/* ---- 4. Top bar = the landing page .site-header ------------------------- */
+.menu-bar {
+  background: color-mix(in oklab, var(--bg) 82%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+/* The OS drives the theme, so hide mdBook's theme picker and its centred
+   title (the injected wordmark replaces it). */
+#theme-toggle              { display: none !important; }
+.menu-bar .menu-title      { display: none; }
+
+/* Wordmark + nav are injected by domino.js; these mirror styles.css. */
+.domino-wordmark {
+  display: flex; align-items: center; gap: 8px;
+  margin: 0 6px;
+  font-weight: 600; font-size: 18px; letter-spacing: -0.01em;
+  color: var(--fg);
+  margin-right: auto;            /* push nav + icons to the right edge */
+}
+.domino-wordmark:hover { color: var(--fg); }
+.domino-wordmark .mark {
+  width: 10px; height: 10px; border-radius: 3px;
+  background: var(--accent); transform: rotate(45deg);
+  display: inline-block;
+}
+.domino-nav {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 24px;
+  margin: 0 20px;
+}
+.domino-nav a { color: var(--muted); font-size: 15px; white-space: nowrap; }
+.domino-nav a:hover { color: var(--fg); }
+
+/* ---- 5. Footer = the landing page .site-footer ------------------------- */
+.domino-footer {
+  border-top: 1px solid var(--border);
+  margin-top: 56px;
+}
+.domino-footer .footer-inner {
+  display: flex; flex-wrap: wrap; align-items: center;
+  justify-content: space-between; gap: 16px 24px;
+  padding: 24px 0;
+}
+.domino-footer .copyright   { font-size: 13px; color: var(--muted); }
+.domino-footer .footer-links { display: flex; gap: 20px; }
+.domino-footer .footer-links a { font-size: 13px; color: var(--muted); }
+.domino-footer .footer-links a:hover { color: var(--fg); }
+
+/* ---- 6. Code blocks = the landing .code-card body ---------------------- */
+pre {
+  background: var(--bg-soft) !important;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 24px;
+}
+pre > code, .hljs { background: transparent !important; }
+pre code { font-size: 13.5px; line-height: 1.65; }
+pre code, .hljs, .hljs-subst { color: var(--fg); }
+
+/* inline code in prose */
+:not(pre) > code {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 0.1em 0.35em;
+  font-size: 0.9em;
+  color: var(--inline-code-color);
+}
+
+/* highlight.js tokens echo the landing code card (--code-kw / --code-ty) */
+.hljs-keyword, .hljs-built_in, .hljs-literal,
+.hljs-selector-tag                    { color: var(--code-kw); }
+.hljs-type, .hljs-title, .hljs-title.class_,
+.hljs-class .hljs-title               { color: var(--code-ty); }
+.hljs-string, .hljs-number, .hljs-meta { color: var(--muted); }
+
+/* ---- 7. Sidebar polish -------------------------------------------------- */
+.chapter li.chapter-item a         { color: var(--sidebar-fg); }
+.chapter li.chapter-item a:hover   { color: var(--fg); }
+.chapter li.chapter-item a.active  { color: var(--sidebar-active); font-weight: 600; }

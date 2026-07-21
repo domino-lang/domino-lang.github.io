@@ -1,0 +1,32 @@
+[book]
+authors = ["Jan Winkelmann", "Christoph Egger", "Chris Brzuska", "Amir Rajabi"]
+language = "en"
+src = "src"
+title = "Domino Book"
+
+[build]
+# Build into the monorepo's shared output dir, under /book so it's served at
+# domino-prover.org/book/. Path is relative to this file (repo-root/book/book.toml).
+build-dir = "../dist/book"
+
+[output.html]
+additional-js = ["theme/syntax-extra.js", "theme/domino.js"]
+additional-css = ["theme/domino.css"]
+
+# We pin a single mdBook theme and let the CSS follow the OS light/dark
+# preference (prefers-color-scheme), exactly like the website — so
+# both are set to the same value and the theme picker is hidden in CSS.
+default-theme = "light"
+preferred-dark-theme = "light"
+
+git-repository-url = "https://github.com/domino-lang/domino"
+
+# Guide is served under /book/, so this makes mdBook's own links/assets
+# resolve correctly. (The injected nav is handled separately in domino.js.)
+site-url = "/book/"
+
+[output.html.search]
+enable = true
+
+[output.html.playground]
+runnable = false

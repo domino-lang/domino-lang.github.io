@@ -1,8 +1,0 @@
-[book]
-authors = ["Jan Winkelmann (keks)", "Christoph Egger", "Chris Brzuska", "Amir Rajabi"]
-language = "en"
-src = "src"
-title = "Domino"
-
-[output.html]
-additional-js = ["theme/syntax-extra.js"]

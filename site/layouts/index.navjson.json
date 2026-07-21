@@ -1,0 +1,13 @@
+{{- /* Renders the main menu as /nav.json — the single source of truth the
+       mdBook guide reads. URLs are absolutized so they resolve identically
+       from either property; external links pass through unchanged. */ -}}
+{{- $items := slice -}}
+{{- range .Site.Menus.main -}}
+  {{- $items = $items | append (dict "name" .Name "url" (.URL | absURL)) -}}
+{{- end -}}
+{{- dict
+      "wordmark"  .Site.Title
+      "home"      ("/" | absURL)
+      "copyright" (printf "© %s Team" .Site.Title)
+      "nav"       $items
+   | jsonify -}}
