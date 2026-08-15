@@ -13,21 +13,12 @@ Games and theorems are defined in a custom language that resembles pseudocode, s
 
 For verifying proofs, Domino is highly automated. The user still needs to define invariants, but Domino checks them using SMT solvers.
 
-
-## Getting started
-
-To install Domino, just run:
-
-{{< cli "cargo install --git https://github.com/domino-lang/domino domino" >}}
-
-Then, to check a Domino project, run from within the project folder:
-
-{{< cli "domino prove" >}}
-
-
-For more info, take a look at the [book](/book).
-
+Take a look at the book for [getting started].
 
 <hr style="margin: 4em 0 2em 0;">
 
-Domino's development is supported by an NGI0 grant from [NLNet](https://nlnet.nl).
+Domino's development is supported by an NGI0 grant from [NLNet].
+
+
+[NLNet]: https://nlnet.nl
+[getting started]: /book/getting-started.html
