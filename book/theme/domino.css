@@ -38,7 +38,7 @@
    dark mode is handled entirely by the media query in section 1. */
 :root {
   --sidebar-bg:            var(--bg-soft);
-  --sidebar-fg:            var(--muted);
+  --sidebar-fg:            var(--fg);
   --sidebar-non-existant:  var(--muted);
   --sidebar-active:        var(--accent);
   --sidebar-spacer:        var(--border);
@@ -135,11 +135,16 @@ pre {
   background: var(--bg-soft) !important;
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 20px 24px;
 }
+
 pre > code, .hljs { background: transparent !important; }
 pre code { font-size: 13.5px; line-height: 1.65; }
 pre code, .hljs, .hljs-subst { color: var(--fg); }
+
+pre > .language-bash:before {
+  content: "$ ";
+  color: var(--muted);
+}
 
 /* inline code in prose */
 :not(pre) > code {
