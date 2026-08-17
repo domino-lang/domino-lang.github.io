@@ -122,6 +122,7 @@ code, pre, kbd, .hljs, .filename { font-family: "JetBrains Mono", monospace; }
 }
 .domino-footer .footer-inner {
   display: flex; flex-wrap: wrap; align-items: center;
+  margin: 0 36px 0 36px;
   justify-content: space-between; gap: 16px 24px;
   padding: 24px 0;
 }
