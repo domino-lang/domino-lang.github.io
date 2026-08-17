@@ -254,6 +254,7 @@ a { color: inherit; }
   padding: 12px 16px;
   background: var(--card);
   font-size: 14px;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
   margin-bottom: 12px;
 }
 

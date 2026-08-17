@@ -33,7 +33,7 @@
         <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="theme/domino-19d73373.css">
+        <link rel="stylesheet" href="theme/domino-1ff55bd9.css">
 
 
         <!-- Provide site root and default themes to javascript -->
@@ -41,7 +41,7 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "light";
-            window.path_to_searchindex_js = "searchindex-a950e615.js";
+            window.path_to_searchindex_js = "searchindex-699fefb2.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc-0db313f1.js"></script>
@@ -184,6 +184,25 @@
                 <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h1>
+<p>We currently do not have binary releases, and you need to build from source. Most functions of Domino need some tools installed:</p>
+<ul>
+<li><code>domino prove</code> requires cvc5 installed for checking invariants</li>
+<li><code>domino latex</code> requires z3 for layouting graphs</li>
+</ul>
+<p>Since running Domino requires these tools installed, the easiest way for getting started with Domino on Mac or Linux may be through <a href="https://nix.dev/">nix</a>:</p>
+<pre><code class="language-bash">nix run github:domino-lang/domino
+</code></pre>
+<p>Then, to check a Domino project, run from within the project folder:</p>
+<pre><code class="language-bash">nix run github:domino-lang/domino -- prove
+</code></pre>
+<p>Alternatively, if you have a Rust toolchain installed, you can install Domino using:</p>
+<pre><code class="language-bash">cargo install --git https://github.com/domino-lang/domino domino
+</code></pre>
+<p>Checking a Domino project this way requires having a somewhat recent version of CVC5 installed (but we don’t have hard requirements).</p>
+<p>Then, to check a Domino project, run from within the project folder:</p>
+<pre><code class="language-bash">domino prove
+</code></pre>
+<p>For more instructions on how to use the CLI, take a look at <a href="/book/interfaces/cli.html">the respective book section</a>.</p>
 
                     </main>
 
