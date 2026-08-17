@@ -31,4 +31,7 @@ Then, to check a Domino project, run from within the project folder:
 domino prove
 ```
 
+For more instructions on how to use the CLI, take a look at [the respective book section][cli-section].
+
+[cli-section]: /book/interfaces/cli.html
 [nix]: https://nix.dev/
